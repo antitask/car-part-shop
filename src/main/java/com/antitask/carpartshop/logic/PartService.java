@@ -2,6 +2,7 @@ package com.antitask.carpartshop.logic;
 
 import lombok.AllArgsConstructor;
 import com.antitask.carpartshop.model.Part;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -9,6 +10,7 @@ import java.util.List;
 import java.util.Objects;
 
 @AllArgsConstructor
+@Service
 public class PartService {
 
     public static PartService with(List<Part> parts){

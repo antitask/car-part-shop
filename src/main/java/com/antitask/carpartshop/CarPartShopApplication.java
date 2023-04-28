@@ -3,6 +3,7 @@ package com.antitask.carpartshop;
 import com.antitask.carpartshop.data.PartDataSource;
 import com.antitask.carpartshop.logic.PartService;
 import com.antitask.carpartshop.model.Part;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.log4j.ConsoleAppender;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -14,6 +15,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 @SpringBootApplication
+
 public class CarPartShopApplication {
 	private static final Logger log = LogManager.getLogger(CarPartShopApplication .class);
 
