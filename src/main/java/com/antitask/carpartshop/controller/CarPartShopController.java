@@ -23,13 +23,12 @@ public class CarPartShopController {
     CarPartService carPartService;
 
     @GetMapping("/parts/{name}")
-    public ResponseEntity<Part> getCarPart(@PathVariable String name){
+    public ResponseEntity<Part> getCarPart(@PathVariable String name) throws Exception {
         return ResponseEntity.ok().body(carPartService.partByName(name));
     }
     @PostMapping("/parts")
     public ResponseEntity<Part> postCarPart(@RequestBody PartDTO partDTO){
-
-        return ResponseEntity.ok().body(new Part());
+        return ResponseEntity.ok().body(carPartService.savePart(partDTO));
     }
 
 

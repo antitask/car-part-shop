@@ -14,16 +14,19 @@ public class CarPartService {
     @Autowired
     CarPartRepository carPartRepository;
 
-    public Part partByName(String name){
-        return carPartRepository.findByName(name);
+    public Part partByName(String name) throws Exception {
+        Part part = carPartRepository.findByName(name);
+        if(part == null){
+            throw new Exception("no part found!!!");
+        }else {
+            return part;
+        }
     }
 
-    public void savePart(PartDTO partDTO){
-        carPartRepository.save()
-    }
-    public Part preparePart(PartDTO partDTO){
+    public Part savePart(PartDTO partDTO){
         Part part = new Part();
         part.setName(partDTO.getName());
-        return part;
+        return carPartRepository.save(part);
     }
+
 }
