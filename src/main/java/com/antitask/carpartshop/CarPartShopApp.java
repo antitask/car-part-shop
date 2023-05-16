@@ -1,7 +1,5 @@
 package com.antitask.carpartshop;
 
-import java.util.ArrayList;
-import java.util.List;
 import com.antitask.carpartshop.entities.Part;
 import com.antitask.carpartshop.repository.CarPartRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +7,8 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import java.util.List;
 
 @SpringBootApplication
 public class CarPartShopApp implements ApplicationRunner {
@@ -23,14 +23,15 @@ public class CarPartShopApp implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
         seed();
-        //mnogo toga drugog
     }
     private void seed(){
         Part part = new Part();
-        part.setName("break");
+        part.setName("wheel");
         Part part1 = new Part();
-        part1.setName("wheel");
-        List<Part> parts = List.of(part, part1);
+        part1.setName("break");
+        Part part2 = new Part();
+        part2.setName("clutch");
+        List<Part> parts = List.of(part, part1, part2);
         carPartRepository.saveAll(parts);
     }
 }
