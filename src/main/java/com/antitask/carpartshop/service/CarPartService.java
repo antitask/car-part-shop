@@ -2,6 +2,7 @@ package com.antitask.carpartshop.service;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import java.util.List;
 import com.antitask.carpartshop.dto.PartDTO;
 import com.antitask.carpartshop.entities.Part;
 import com.antitask.carpartshop.repository.CarPartRepository;
@@ -13,6 +14,10 @@ public class CarPartService {
 
     @Autowired
     CarPartRepository carPartRepository;
+
+    public List<Part> partsLimited(String limit){
+        return carPartRepository.partsLimited(limit);
+    }
 
     public Part partByName(String name) throws Exception {
         Part part = carPartRepository.findByName(name);
