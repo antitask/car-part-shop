@@ -19,7 +19,6 @@ public class CarPartShopApp implements ApplicationRunner {
     public static void main(String[] args) {
         SpringApplication.run(CarPartShopApp.class, args);
     }
-
     @Override
     public void run(ApplicationArguments args) throws Exception {
         partSeedService.seed();

@@ -30,7 +30,6 @@ public class CarPartShopController {
     public ResponseEntity<List<Part>> getCarParts(@Nullable @RequestParam String limit) throws Exception {
         return ResponseEntity.ok().body(carPartService.partsLimited(limit));
     }
-
     @GetMapping("/parts/{name}")
     public ResponseEntity<Part> getCarPart(@PathVariable String name) throws Exception {
         return ResponseEntity.ok().body(carPartService.partByName(name));

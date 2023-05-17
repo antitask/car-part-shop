@@ -11,5 +11,5 @@ import org.springframework.stereotype.Repository;
 public interface CarPartRepository extends JpaRepository<Part, Integer> {
   Part findByName(String name);
   @Query(value = "select * from parts limit :limit", nativeQuery = true)
-  List<Part> partsLimited(String limit);
+  List<Part> findByLimit(String limit);
 }

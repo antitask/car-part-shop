@@ -9,15 +9,13 @@ import com.antitask.carpartshop.repository.CarPartRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class CarPartService {
 
     @Autowired
     CarPartRepository carPartRepository;
-
-    public List<Part> partsLimited(String limit){
-        return carPartRepository.partsLimited(limit);
-    }
 
     public Part partByName(String name) throws Exception {
         Part part = carPartRepository.findByName(name);
@@ -32,6 +30,18 @@ public class CarPartService {
         Part part = new Part();
         part.setName(partDTO.getName());
         return carPartRepository.save(part);
+    }
+    public List<Part> allParts () throws Exception{
+        List <Part> parts = carPartRepository.findAll();
+        if (parts.size() == 0) {
+            throw new Exception("Nemamo nista");
+        } else {
+            return parts;
+        }
+    }
+
+    public List<Part> partsLimited(String limit){
+        return carPartRepository.findByLimit(limit);
     }
 
 }
