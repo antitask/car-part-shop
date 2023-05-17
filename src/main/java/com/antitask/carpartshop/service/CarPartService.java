@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CarPartService {
@@ -17,6 +18,14 @@ public class CarPartService {
     @Autowired
     CarPartRepository carPartRepository;
 
+    public void deletePart(Integer id) throws Exception {
+        Optional<Part> part = carPartRepository.findById(id);
+        if(part.isPresent()){
+            carPartRepository.delete(part.get());
+        }else {
+            throw new Exception("Part with id: " + id + " does not exist!!!");
+        }
+    }
     public Part partByName(String name) throws Exception {
         Part part = carPartRepository.findByName(name);
         if(part == null){
