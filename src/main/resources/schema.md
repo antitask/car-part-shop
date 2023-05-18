@@ -1,4 +1,0 @@
-create table PARTS (
-    id INT AUTO_INCREMENT PRIMARY KEY ,
-    NAME VARCHAR(25) NOT NULL
-);
