@@ -25,5 +25,4 @@
 - implement borrow limit for each book (in days)
 - filter books by date borrowed and comparing to borrow limit in days
 - filter books by user who borrow the book.
-- prevent user to borrow a book if previos bookis not returned or user is late
-
+- prevent user from borrowing a book if previos book is not returned 
