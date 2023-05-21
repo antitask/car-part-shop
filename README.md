@@ -15,7 +15,8 @@
 - seed initially books data with at least 10 books and different availability status.
 - implement aggregated book table without relations (store all book data in one table)
 - write unit-test for different scenarios
-- use code formatting 
+- use code formatting
+- use common coding practices and pattern 
 - comment your implementation
 - make sure implementation is working locally before commit
 - push commits incrementally (feature by feature)
