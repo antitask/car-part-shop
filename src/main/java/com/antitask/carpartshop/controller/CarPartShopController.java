@@ -1,14 +1,12 @@
 package com.antitask.carpartshop.controller;
 
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 import com.antitask.carpartshop.dto.PartDTO;
 import com.antitask.carpartshop.entities.Part;
+import com.antitask.carpartshop.exception.CarPartShopException;
 import com.antitask.carpartshop.service.CarPartService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Profile;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.lang.Nullable;
@@ -22,7 +20,8 @@ public class CarPartShopController {
     CarPartService carPartService;
 
     @GetMapping("/parts")
-    public ResponseEntity<List<Part>> getCarParts(@Nullable @RequestParam String limit) throws Exception {
+    public ResponseEntity<List<Part>> getCarParts(@Nullable @RequestParam String limit)
+        throws CarPartShopException {
         return ResponseEntity.ok().body(carPartService.partsLimited(limit));
     }
     @GetMapping("/parts/{name}")

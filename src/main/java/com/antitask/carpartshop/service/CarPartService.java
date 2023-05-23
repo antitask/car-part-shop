@@ -5,8 +5,10 @@ import javax.persistence.EntityManagerFactory;
 import java.util.List;
 import com.antitask.carpartshop.dto.PartDTO;
 import com.antitask.carpartshop.entities.Part;
+import com.antitask.carpartshop.exception.CarPartShopException;
 import com.antitask.carpartshop.repository.CarPartRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -49,7 +51,10 @@ public class CarPartService {
         }
     }
 
-    public List<Part> partsLimited(String limit){
+    public List<Part> partsLimited(String limit) throws CarPartShopException {
+        if(Integer.valueOf(limit) > 10){
+            throw new CarPartShopException("CarPartShopException", HttpStatus.BAD_REQUEST, 400, "Limit reached!!!");
+        }
         return carPartRepository.findByLimit(limit);
     }
 
